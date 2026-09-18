@@ -1,0 +1,273 @@
+/* VIZORIS INDUSTRIAL DESIGN SYSTEM — RESTRAINED PROFESSIONAL AESTHETIC */
+:root {
+  /* Color Palette - Dark Charcoal & Industrial Slate */
+  --bg-space: #0b0f17;
+  --bg-base: #0f1420;
+  --bg-surface: #141b2a;
+  --bg-surface-elevated: #1a2337;
+  --bg-card: rgba(20, 27, 42, 0.7);
+  --bg-card-hover: rgba(26, 35, 55, 0.85);
+  --bg-panel: #111724;
+
+  /* Borders & Dividers - Subtle, Clean */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.14);
+  --border-focus: #0ea5e9;
+  --border-accent: rgba(14, 165, 233, 0.3);
+
+  /* Primary Industrial Technology Accents (Restrained Cyan/Blue) */
+  --cyan-accent: #0ea5e9;
+  --cyan-subtle: rgba(14, 165, 233, 0.12);
+  --blue-slate: #38bdf8;
+  --blue-steel: #1e293b;
+  
+  /* Status Colors (Clear, High-Contrast, Industrial) */
+  --status-pass: #10b981;
+  --status-pass-bg: rgba(16, 185, 129, 0.1);
+  --status-pass-border: rgba(16, 185, 129, 0.3);
+
+  --status-defect: #f43f5e;
+  --status-defect-bg: rgba(244, 63, 94, 0.1);
+  --status-defect-border: rgba(244, 63, 94, 0.35);
+
+  --status-warn: #f59e0b;
+  --status-warn-bg: rgba(245, 158, 11, 0.1);
+  --status-warn-border: rgba(245, 158, 11, 0.3);
+
+  --status-info: #0284c7;
+
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', Consolas, Monaco, monospace;
+
+  /* Text Colors */
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-dim: #475569;
+  --text-cyan: #38bdf8;
+
+  /* Layout Spacing */
+  --sidebar-width: 240px;
+  --sidebar-collapsed-width: 68px;
+  --header-height: 64px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-space);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.5;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-space);
+}
+
+/* Monospace Helpers */
+.mono {
+  font-family: var(--font-mono);
+  letter-spacing: -0.01em;
+}
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.badge-pass {
+  background: var(--status-pass-bg);
+  color: var(--status-pass);
+  border: 1px solid var(--status-pass-border);
+}
+
+.badge-defect {
+  background: var(--status-defect-bg);
+  color: var(--status-defect);
+  border: 1px solid var(--status-defect-border);
+}
+
+.badge-warn {
+  background: var(--status-warn-bg);
+  color: var(--status-warn);
+  border: 1px solid var(--status-warn-border);
+}
+
+.badge-cyan {
+  background: var(--cyan-subtle);
+  color: var(--blue-slate);
+  border: 1px solid rgba(14, 165, 233, 0.25);
+}
+
+/* Glass Panels (Restrained, Crisp) */
+.glass-panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+
+.glass-panel-elevated {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+/* Standard Clean Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+  border: 1px solid transparent;
+  outline: none;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-sm {
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+.btn-primary {
+  background: #0284c7;
+  color: #ffffff;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #0369a1;
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--border-subtle);
+  color: var(--text-primary);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--border-medium);
+}
+
+.btn-success {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: var(--status-pass-border);
+  color: #34d399;
+}
+
+.btn-success:hover:not(:disabled) {
+  background: rgba(16, 185, 129, 0.25);
+}
+
+.btn-danger {
+  background: rgba(244, 63, 94, 0.15);
+  border-color: var(--status-defect-border);
+  color: #fb7185;
+}
+
+.btn-danger:hover:not(:disabled) {
+  background: rgba(244, 63, 94, 0.25);
+}
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-icon:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  border-color: var(--border-medium);
+}
+
+/* Status indicator dots */
+.status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+.status-dot.connected, .status-dot.online, .status-dot.ready {
+  background: var(--status-pass);
+}
+
+.status-dot.processing, .status-dot.waiting {
+  background: var(--status-warn);
+}
+
+.status-dot.disconnected, .status-dot.defect {
+  background: var(--status-defect);
+}
+
+/* Text Colors */
+.text-cyan { color: var(--blue-slate); }
+.text-emerald { color: var(--status-pass); }
+.text-rose { color: var(--status-defect); }
+.text-amber { color: var(--status-warn); }
+.text-muted { color: var(--text-muted); }
+.font-bold { font-weight: 600; }
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-space);
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}

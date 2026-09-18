@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="100%" height="100%">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000" flood-opacity="0.6"/>
+    </filter>
+    <linearGradient id="paperGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#faf9f5"/>
+      <stop offset="100%" stop-color="#f2efe9"/>
+    </linearGradient>
+    <linearGradient id="spiralWire" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4a5568"/>
+      <stop offset="40%" stop-color="#cbd5e1"/>
+      <stop offset="70%" stop-color="#94a3b8"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <pattern id="dotPattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="0.6" fill="#000000" opacity="0.04"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="1000" fill="#080c14"/>
+
+  <!-- Notebook Body -->
+  <g filter="url(#shadow)">
+    <rect x="70" y="50" width="660" height="900" rx="14" ry="14" fill="url(#paperGrad)"/>
+    <rect x="70" y="50" width="660" height="900" rx="14" ry="14" fill="url(#dotPattern)"/>
+  </g>
+
+  <!-- Left Spine Margin Binding Strip -->
+  <rect x="70" y="50" width="60" height="900" rx="4" fill="#000000" opacity="0.03"/>
+  <line x1="130" y1="50" x2="130" y2="950" stroke="#e2e8f0" stroke-width="1.5"/>
+
+  <!-- Vertical Red Margin Line -->
+  <line x1="200" y1="90" x2="200" y2="920" stroke="#f43f5e" stroke-width="2" opacity="0.8"/>
+
+  <!-- Top Header Box -->
+  <rect x="145" y="85" width="560" height="65" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2"/>
+  <text x="165" y="115" font-family="'Rajdhani', 'Inter', monospace" font-size="14" font-weight="700" fill="#334155" letter-spacing="1.5">PRODUCT ID: NB-00127</text>
+  <text x="165" y="136" font-family="'Inter', sans-serif" font-size="11" fill="#64748b">STANDARD COLLEGE RULED • 80 GSM OPTICAL WHITE</text>
+  
+  <text x="540" y="115" font-family="'Inter', sans-serif" font-size="11" font-weight="600" fill="#475569">DATE: ___/___/2026</text>
+  <text x="540" y="136" font-family="'Inter', sans-serif" font-size="11" font-weight="600" fill="#475569">PAGE: 01</text>
+
+  <!-- Horizontal Ruled Blue Lines -->
+  <g stroke="#93c5fd" stroke-width="1.2" opacity="0.75">
+    <line x1="140" y1="180" x2="710" y2="180"/>
+    <line x1="140" y1="210" x2="710" y2="210"/>
+    <line x1="140" y1="240" x2="710" y2="240"/>
+    <line x1="140" y1="270" x2="710" y2="270"/>
+    <line x1="140" y1="300" x2="710" y2="300"/>
+    <line x1="140" y1="330" x2="710" y2="330"/>
+    <line x1="140" y1="360" x2="710" y2="360"/>
+    <line x1="140" y1="390" x2="710" y2="390"/>
+    <line x1="140" y1="420" x2="710" y2="420"/>
+    <line x1="140" y1="450" x2="710" y2="450"/>
+    <line x1="140" y1="480" x2="710" y2="480"/>
+    <line x1="140" y1="510" x2="710" y2="510"/>
+    <line x1="140" y1="540" x2="710" y2="540"/>
+    <line x1="140" y1="570" x2="710" y2="570"/>
+    <line x1="140" y1="600" x2="710" y2="600"/>
+    <line x1="140" y1="630" x2="710" y2="630"/>
+    <line x1="140" y1="660" x2="710" y2="660"/>
+    <line x1="140" y1="690" x2="710" y2="690"/>
+    <line x1="140" y1="720" x2="710" y2="720"/>
+    <line x1="140" y1="750" x2="710" y2="750"/>
+    <line x1="140" y1="780" x2="710" y2="780"/>
+    <line x1="140" y1="810" x2="710" y2="810"/>
+    <line x1="140" y1="840" x2="710" y2="840"/>
+    <line x1="140" y1="870" x2="710" y2="870"/>
+    <line x1="140" y1="900" x2="710" y2="900"/>
+  </g>
+
+  <!-- CONTROLLED DEFECT: SPIRAL PUNCH / BINDING MISALIGNMENT -->
+  <!-- Notice holes shifted heavily outward and distorted wire angles in middle segment -->
+  <g id="defect-binding">
+    <!-- Regular Top Holes -->
+    <ellipse cx="95" cy="80" rx="8" ry="12" fill="#1e293b"/>
+    <ellipse cx="95" cy="125" rx="8" ry="12" fill="#1e293b"/>
+    <ellipse cx="95" cy="170" rx="8" ry="12" fill="#1e293b"/>
+    <!-- MISALIGNED SKEWED HOLES (Shifted towards edge & diagonal angle) -->
+    <ellipse cx="78" cy="218" rx="10" ry="14" fill="#ef4444" fill-opacity="0.3" stroke="#ef4444" stroke-width="1.5"/>
+    <ellipse cx="78" cy="218" rx="8" ry="12" fill="#1e293b"/>
+    <ellipse cx="74" cy="265" rx="11" ry="15" fill="#ef4444" fill-opacity="0.3" stroke="#ef4444" stroke-width="1.5"/>
+    <ellipse cx="74" cy="265" rx="8" ry="12" fill="#1e293b"/>
+    <ellipse cx="73" cy="312" rx="11" ry="15" fill="#ef4444" fill-opacity="0.3" stroke="#ef4444" stroke-width="1.5"/>
+    <ellipse cx="73" cy="312" rx="8" ry="12" fill="#1e293b"/>
+    <ellipse cx="76" cy="358" rx="10" ry="14" fill="#ef4444" fill-opacity="0.3" stroke="#ef4444" stroke-width="1.5"/>
+    <ellipse cx="76" cy="358" rx="8" ry="12" fill="#1e293b"/>
+    <ellipse cx="80" cy="402" rx="9" ry="13" fill="#ef4444" fill-opacity="0.3" stroke="#ef4444" stroke-width="1.5"/>
+    <ellipse cx="80" cy="402" rx="8" ry="12" fill="#1e293b"/>
+    <!-- Normal bottom holes -->
+    <ellipse cx="95" cy="445" rx="8" ry="12" fill="#1e293b"/>
+    <ellipse cx="95" cy="485" rx="8" ry="12" fill="#1e293b"/>
+    <ellipse cx="95" cy="530" rx="8" ry="12" fill="#1e293b"/>
+    <ellipse cx="95" cy="575" rx="8" ry="12" fill="#1e293b"/>
+    <ellipse cx="95" cy="620" rx="8" ry="12" fill="#1e293b"/>
+    <ellipse cx="95" cy="665" rx="8" ry="12" fill="#1e293b"/>
+    <ellipse cx="95" cy="710" rx="8" ry="12" fill="#1e293b"/>
+    <ellipse cx="95" cy="755" rx="8" ry="12" fill="#1e293b"/>
+    <ellipse cx="95" cy="800" rx="8" ry="12" fill="#1e293b"/>
+    <ellipse cx="95" cy="845" rx="8" ry="12" fill="#1e293b"/>
+    <ellipse cx="95" cy="890" rx="8" ry="12" fill="#1e293b"/>
+
+    <!-- Twisted distorted wires -->
+    <path d="M 60 76 C 45 76, 45 84, 98 84" fill="none" stroke="url(#spiralWire)" stroke-width="6" stroke-linecap="round"/>
+    <path d="M 60 121 C 45 121, 45 129, 98 129" fill="none" stroke="url(#spiralWire)" stroke-width="6" stroke-linecap="round"/>
+    <path d="M 60 166 C 45 166, 45 174, 98 174" fill="none" stroke="url(#spiralWire)" stroke-width="6" stroke-linecap="round"/>
+    <!-- Bent wires -->
+    <path d="M 46 208 C 30 208, 35 224, 82 222" fill="none" stroke="url(#spiralWire)" stroke-width="6.5" stroke-linecap="round"/>
+    <path d="M 44 252 C 26 250, 32 270, 78 268" fill="none" stroke="url(#spiralWire)" stroke-width="6.5" stroke-linecap="round"/>
+    <path d="M 44 298 C 28 296, 32 316, 76 314" fill="none" stroke="url(#spiralWire)" stroke-width="6.5" stroke-linecap="round"/>
+    <path d="M 48 344 C 34 344, 38 360, 80 360" fill="none" stroke="url(#spiralWire)" stroke-width="6" stroke-linecap="round"/>
+    <path d="M 54 390 C 42 390, 44 404, 84 404" fill="none" stroke="url(#spiralWire)" stroke-width="6" stroke-linecap="round"/>
+
+    <path d="M 60 441 C 45 441, 45 449, 98 449" fill="none" stroke="url(#spiralWire)" stroke-width="6" stroke-linecap="round"/>
+    <path d="M 60 481 C 45 481, 45 489, 98 489" fill="none" stroke="url(#spiralWire)" stroke-width="6" stroke-linecap="round"/>
+    <path d="M 60 526 C 45 526, 45 534, 98 534" fill="none" stroke="url(#spiralWire)" stroke-width="6" stroke-linecap="round"/>
+    <path d="M 60 571 C 45 571, 45 579, 98 579" fill="none" stroke="url(#spiralWire)" stroke-width="6" stroke-linecap="round"/>
+    <path d="M 60 616 C 45 616, 45 624, 98 624" fill="none" stroke="url(#spiralWire)" stroke-width="6" stroke-linecap="round"/>
+    <path d="M 60 661 C 45 661, 45 669, 98 669" fill="none" stroke="url(#spiralWire)" stroke-width="6" stroke-linecap="round"/>
+    <path d="M 60 706 C 45 706, 45 714, 98 714" fill="none" stroke="url(#spiralWire)" stroke-width="6" stroke-linecap="round"/>
+    <path d="M 60 751 C 45 751, 45 759, 98 759" fill="none" stroke="url(#spiralWire)" stroke-width="6" stroke-linecap="round"/>
+    <path d="M 60 796 C 45 796, 45 804, 98 804" fill="none" stroke="url(#spiralWire)" stroke-width="6" stroke-linecap="round"/>
+    <path d="M 60 841 C 45 841, 45 849, 98 849" fill="none" stroke="url(#spiralWire)" stroke-width="6" stroke-linecap="round"/>
+    <path d="M 60 886 C 45 886, 45 894, 98 894" fill="none" stroke="url(#spiralWire)" stroke-width="6" stroke-linecap="round"/>
+  </g>
+</svg>
