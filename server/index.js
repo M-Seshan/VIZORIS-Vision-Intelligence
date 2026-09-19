@@ -34,6 +34,13 @@ const server = http.createServer(app);
 // Initialize Database connection (MongoDB if configured, persistent JSON fallback)
 initDatabase().catch(err => console.error('[VIZORIS DB INIT ERROR]', err));
 
+process.on('uncaughtException', (err) => {
+  console.error('[VIZORIS UNCAUGHT EXCEPTION]', err);
+});
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('[VIZORIS UNHANDLED REJECTION]', reason);
+});
+
 // WebSocket Server supporting both /ws (UI) and /ws/usb-bridge (Mobile Scanner)
 const wss = new WebSocketServer({ noServer: true });
 const scannerClients = new Set();
@@ -432,18 +439,18 @@ app.get('/api/usb/devices', async (req, res) => {
 
 // Connect a specific USB or ADB device
 app.post('/api/usb/connect', (req, res) => {
-  const { deviceId, deviceName, connectionType, serial, model } = req.body;
+  const { deviceId, deviceName, connectionType, serial, model, batteryLevel } = req.body;
 
   scannerState.status = 'CONNECTED';
   scannerState.deviceName = deviceName || 'Android Mobile Scanner (USB)';
   scannerState.connectionType = connectionType || 'USB 3.2 High-Speed Bridge';
-  scannerState.batteryLevel = Math.floor(82 + Math.random() * 16);
+  scannerState.batteryLevel = batteryLevel !== undefined ? Number(batteryLevel) : null;
   scannerState.lastHeartbeat = Date.now();
   scannerState.isPersistentConnection = true;
   scannerState.connectedDevice = {
     id: deviceId || `usb-${Date.now()}`,
     name: scannerState.deviceName,
-    serial: serial || `USB-ID-${Math.random().toString(36).substring(2, 8).toUpperCase()}`,
+    serial: serial || deviceId || 'USB-SCANNER-DEVICE',
     model: model || deviceName || 'Mobile Scanner App',
     connectedAt: new Date().toISOString()
   };
@@ -566,6 +573,12 @@ app.get('/api/inspections', (req, res) => {
   });
 });
 
+// Dedicated Real Inspection Statistics API (Computed dynamically from real inspections)
+app.get('/api/inspections/stats', (req, res) => {
+  const range = req.query.range || null;
+  res.json(getMetrics({ range }));
+});
+
 // Single Inspection Record
 app.get('/api/inspections/:id', (req, res) => {
   const item = getInspectionById(req.params.id);
@@ -597,7 +610,8 @@ app.post('/api/inspections/:id/action', (req, res) => {
 
 // Quality Metrics (Computed strictly from real inspections)
 app.get('/api/metrics', (req, res) => {
-  res.json(getMetrics());
+  const range = req.query.range || null;
+  res.json(getMetrics({ range }));
 });
 
 // Root Cause Analysis (Derived strictly from real inspections)

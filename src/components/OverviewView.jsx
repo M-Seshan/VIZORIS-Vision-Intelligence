@@ -1,5 +1,5 @@
 // src/components/OverviewView.jsx
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   CheckCircle2, 
   AlertOctagon, 
@@ -10,19 +10,52 @@ import {
   ArrowUpRight, 
   Sparkles, 
   UploadCloud,
-  HelpCircle,
-  Clock
+  Clock,
+  Filter
 } from 'lucide-react';
 
 export function OverviewView({ metrics, scannerState, recentInspections = [], onSelectInspection, onNavigate }) {
-  const hasData = metrics && metrics.totalInspected > 0;
-  const totalInspected = metrics?.totalInspected || 0;
-  const passed = metrics?.passed || 0;
-  const defective = metrics?.defective || 0;
-  const defectRate = metrics?.defectRate !== undefined ? `${metrics.defectRate}%` : '0%';
-  const avgQualityScore = metrics?.avgQualityScore !== null && metrics?.avgQualityScore !== undefined 
-    ? `${metrics.avgQualityScore}%` 
-    : (hasData ? '100%' : 'N/A');
+  const [selectedRange, setSelectedRange] = useState('ALL');
+  const [rangeStats, setRangeStats] = useState(null);
+  const [loadingRange, setLoadingRange] = useState(false);
+
+  // If a time-range filter is applied, query the backend stats endpoint for that exact range
+  useEffect(() => {
+    if (selectedRange === 'ALL') {
+      setRangeStats(null);
+      return;
+    }
+    setLoadingRange(true);
+    fetch(`/api/inspections/stats?range=${selectedRange.toLowerCase()}`)
+      .then(res => res.json())
+      .then(data => {
+        setRangeStats(data);
+        setLoadingRange(false);
+      })
+      .catch(err => {
+        console.error('Failed to fetch range stats:', err);
+        setLoadingRange(false);
+      });
+  }, [selectedRange, metrics]);
+
+  const activeStats = rangeStats || metrics;
+
+  const totalInspections = activeStats?.totalInspections ?? activeStats?.totalInspected ?? 0;
+  const passedSpecimens = activeStats?.passedSpecimens ?? activeStats?.passed ?? 0;
+  const defectsDetected = activeStats?.defectsDetected ?? activeStats?.defective ?? 0;
+  const hasData = totalInspections > 0;
+
+  const firstPassYield = hasData 
+    ? `${activeStats?.firstPassYield !== undefined ? activeStats.firstPassYield : ((passedSpecimens / totalInspections) * 100).toFixed(1)}%` 
+    : '0%';
+
+  const defectRate = hasData 
+    ? `${activeStats?.defectRate !== undefined ? activeStats.defectRate : ((defectsDetected / totalInspections) * 100).toFixed(1)}%` 
+    : '0%';
+
+  const avgQualityScore = hasData 
+    ? `${activeStats?.averageQualityScore ?? activeStats?.avgQualityScore ?? 0}%` 
+    : '0%';
 
   const latestInspection = recentInspections[0] || null;
 
@@ -56,61 +89,115 @@ export function OverviewView({ metrics, scannerState, recentInspections = [], on
           </div>
         </div>
 
-        {hasData && (
-          <div className="hero-stats-ring">
-            <div className="ring-val mono">
-              {totalInspected > 0 ? `${((passed / totalInspected) * 100).toFixed(1)}%` : '—'}
-            </div>
-            <div className="ring-lbl">FIRST-PASS YIELD</div>
+        <div className="hero-stats-ring">
+          <div className="ring-val mono">
+            {firstPassYield}
           </div>
-        )}
+          <div className="ring-lbl">FIRST-PASS YIELD</div>
+        </div>
       </div>
 
-      {/* Primary KPI Grid — Strictly from Real Database */}
+      {/* Real Data & Date Filter Bar */}
+      <div className="history-filter-bar" style={{ marginBottom: '4px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <span className="badge badge-cyan mono">
+            SOURCE: REAL NOTEBOOK SCANS ONLY
+          </span>
+          <span className="mono text-muted" style={{ fontSize: '11px' }}>
+            {hasData ? `${totalInspections} persisted physical scans in database` : 'Zero synthetic / demo records'}
+          </span>
+        </div>
+
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <Filter size={14} className="text-muted" />
+          <span className="mono text-muted" style={{ fontSize: '11px' }}>TIME RANGE:</span>
+          <select 
+            value={selectedRange} 
+            onChange={(e) => setSelectedRange(e.target.value)}
+            className="filter-select mono"
+            style={{ padding: '4px 10px', fontSize: '12px' }}
+          >
+            <option value="ALL">All-Time Scans</option>
+            <option value="TODAY">Today Only</option>
+            <option value="WEEK">Past 7 Days</option>
+            <option value="MONTH">Past 30 Days</option>
+          </select>
+        </div>
+      </div>
+
+      {/* Primary KPI Grid — Strictly from Real Completed Inspections */}
       <div className="kpi-grid">
-        {/* Total Real Inspections */}
+        {/* 1. Total Real Inspections */}
         <div className="kpi-card">
           <div className="kpi-header">
             <span className="kpi-label">TOTAL REAL INSPECTIONS</span>
             <Layers size={18} className="text-cyan" />
           </div>
           <div className="kpi-value mono">
-            {hasData ? totalInspected : 'No inspections yet'}
+            {totalInspections}
           </div>
           <div className="kpi-subtext">
             {hasData ? 'Verified physical notebook scans' : 'Awaiting mobile scanner ingest'}
           </div>
         </div>
 
-        {/* Passed */}
+        {/* 2. Passed Specimens */}
         <div className="kpi-card">
           <div className="kpi-header">
             <span className="kpi-label">PASSED SPECIMENS</span>
             <CheckCircle2 size={18} className="text-emerald" />
           </div>
           <div className="kpi-value mono text-emerald">
-            {hasData ? passed : '—'}
+            {passedSpecimens}
           </div>
           <div className="kpi-subtext">
-            {hasData ? `${((passed / totalInspected) * 100).toFixed(1)}% conformance rate` : 'No data recorded yet'}
+            {hasData ? `${firstPassYield} pass yield` : 'No passes recorded yet'}
           </div>
         </div>
 
-        {/* Defects Detected */}
+        {/* 3. Defects Detected */}
         <div className="kpi-card">
           <div className="kpi-header">
             <span className="kpi-label">DEFECTS DETECTED</span>
             <AlertOctagon size={18} className="text-rose" />
           </div>
           <div className="kpi-value mono text-rose">
-            {hasData ? defective : '—'}
+            {defectsDetected}
           </div>
           <div className="kpi-subtext">
             {hasData ? `Defect rate: ${defectRate}` : 'No defects recorded yet'}
           </div>
         </div>
 
-        {/* Average Quality Score */}
+        {/* 4. First-Pass Yield */}
+        <div className="kpi-card">
+          <div className="kpi-header">
+            <span className="kpi-label">FIRST-PASS YIELD</span>
+            <Percent size={18} className="text-emerald" />
+          </div>
+          <div className="kpi-value mono text-emerald">
+            {firstPassYield}
+          </div>
+          <div className="kpi-subtext">
+            {hasData ? `${passedSpecimens} of ${totalInspections} passed` : 'Calculated from completed scans'}
+          </div>
+        </div>
+
+        {/* 5. Defect Rate */}
+        <div className="kpi-card">
+          <div className="kpi-header">
+            <span className="kpi-label">DEFECT RATE</span>
+            <AlertOctagon size={18} className="text-rose" />
+          </div>
+          <div className="kpi-value mono text-rose">
+            {defectRate}
+          </div>
+          <div className="kpi-subtext">
+            {hasData ? `${defectsDetected} of ${totalInspections} defective` : 'Calculated from completed scans'}
+          </div>
+        </div>
+
+        {/* 6. Average Quality Score */}
         <div className="kpi-card">
           <div className="kpi-header">
             <span className="kpi-label">AVERAGE QUALITY SCORE</span>
@@ -129,9 +216,9 @@ export function OverviewView({ metrics, scannerState, recentInspections = [], on
       {!hasData ? (
         <div className="empty-state-banner">
           <Smartphone size={36} className="text-cyan" />
-          <div className="empty-state-title">No Notebook Inspections Recorded Yet</div>
+          <div className="empty-state-title">No Real Inspection Data Available Yet</div>
           <p className="empty-state-sub">
-            The live dashboard only displays real inspection data captured from your mobile scanner. Connect your Android phone via USB and take a notebook photo, or upload an image to begin.
+            The dashboard displays metrics strictly derived from real completed notebook scans. Zero synthetic or dummy records are used. Connect your phone via USB or upload a notebook image in Live Inspection to begin.
           </p>
           <button 
             className="btn btn-primary"

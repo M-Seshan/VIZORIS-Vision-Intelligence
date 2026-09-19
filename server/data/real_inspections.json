@@ -1,6 +1,1677 @@
 {
   "inspections": [
     {
+      "id": "VIZ-2026-0026",
+      "productId": "VIZ-2026-0026",
+      "productType": "Notebook",
+      "name": "Notebook Scan VIZ-2026-0026",
+      "image": "/uploads/notebook-scan-1789781522949-NB-SCAN-3259.jpg",
+      "originalFilename": "notebook-scan-1789781522949-NB-SCAN-3259.jpg",
+      "timestamp": "2026-09-19T01:32:06.021Z",
+      "inspectedAt": "2026-09-19T01:32:06.021Z",
+      "status": "LOW CONFIDENCE",
+      "qualityScore": null,
+      "confidence": 36,
+      "severity": "NOMINAL",
+      "defects": [],
+      "imageAnalysis": {
+        "width": 1080,
+        "height": 1528,
+        "blurVariance": 14.96,
+        "isBlurry": true,
+        "notebookDetected": true,
+        "meanBrightness": 195.2,
+        "contrast": 13.7,
+        "referenceUsed": true,
+        "alignmentMethod": "N/A"
+      },
+      "diagnosticMessage": "Image too blurry for reliable computer vision inspection (Laplacian variance: 15.0 < 25.0). Please hold the camera steady and rescan.",
+      "referenceInfo": {
+        "exists": true,
+        "filename": "notebook_clean_reference.jpg",
+        "path": "reference/notebook_clean_reference.jpg",
+        "url": "/reference/notebook_clean_reference.jpg?t=1789769900128.7312",
+        "updatedAt": "2026-09-18T22:18:20.129Z",
+        "sizeBytes": 87864
+      },
+      "rootCause": {
+        "process": "Cutting & Trimming",
+        "defectType": "Torn Page",
+        "defectCount": 2,
+        "totalInspections": 25,
+        "defectRate": "8.0%",
+        "confidence": "Moderate",
+        "probableCause": "Trimmer blade edge wear or sheet clamp tension excess",
+        "recommendedAction": "Inspect Cutting & Trimming parameters and verify calibration before next production run.",
+        "disclaimer": "Probable cause based on historical correlation — not confirmed physical cause."
+      },
+      "prediction": {
+        "active": false,
+        "headline": "STABLE: Production Quality Within Control Limits",
+        "summary": "Defect rate is stable or declining across current inspection batch.",
+        "riskLevel": "LOW",
+        "currentDefectRate": "50.0%",
+        "previousDefectRate": "84.6%",
+        "currentBatchTrend": "Nominal drift",
+        "futureDefectRisk": "Low",
+        "recommendedAction": "Continue current line monitoring parameters."
+      },
+      "passport": {
+        "passportId": "PASSPORT-VIZ-2026-0026",
+        "hash": "SHA256-27EAD023DDFD658D",
+        "verifiedBy": "VIZORIS Vision Intelligence Engine v2.4",
+        "issuedAt": "2026-09-19T01:32:06.030Z"
+      },
+      "scannerSource": "USB_MOBILE_SCANNER"
+    },
+    {
+      "id": "VIZ-2026-0025",
+      "productId": "VIZ-2026-0025",
+      "productType": "Notebook",
+      "name": "Notebook Scan VIZ-2026-0025",
+      "image": "/uploads/notebook-scan-1789780290707-NB-SCAN-0993.jpg",
+      "originalFilename": "notebook-scan-1789780290707-NB-SCAN-0993.jpg",
+      "timestamp": "2026-09-19T01:11:31.781Z",
+      "inspectedAt": "2026-09-19T01:11:31.781Z",
+      "status": "DEFECT DETECTED",
+      "qualityScore": 54,
+      "confidence": 94,
+      "severity": "CRITICAL",
+      "defects": [
+        {
+          "type": "Torn Page",
+          "label": "Torn / Damaged Page Corner",
+          "confidence": 94,
+          "severity": "CRITICAL",
+          "location": "Upper-center page area",
+          "bbox": {
+            "x": 0,
+            "y": 0,
+            "width": 100,
+            "height": 24.6
+          },
+          "description": "Substrate boundary damage detected at page corner (~800px span, 11.8% area). Page substrate is torn, cut, or missing compared to clean baseline reference.",
+          "suggestedAction": "Quarantine notebook unit; investigate printing/damage source.",
+          "_meta": {
+            "source": "INDEPENDENT_STROKE",
+            "raw_bbox": [
+              0,
+              0,
+              800,
+              271
+            ],
+            "area_px": 103972,
+            "max_dim": 800
+          },
+          "id": "DEF-01"
+        },
+        {
+          "type": "Pen Line / Writing",
+          "label": "Stray Pen / Ink Stroke",
+          "confidence": 80,
+          "severity": "MINOR",
+          "location": "Lower-right page area",
+          "bbox": {
+            "x": 80.6,
+            "y": 82.2,
+            "width": 2.8,
+            "height": 8.3
+          },
+          "description": "Linear or curved pen/pencil mark detected (~91px span, bbox 2.8%x8.3%). Crosses normal notebook ruling structure — stray mark confirmed.",
+          "suggestedAction": "Record minor surface anomaly in batch inspection log.",
+          "_meta": {
+            "source": "INDEPENDENT_STROKE",
+            "raw_bbox": [
+              645,
+              904,
+              22,
+              91
+            ],
+            "area_px": 209,
+            "max_dim": 91
+          },
+          "id": "DEF-02"
+        },
+        {
+          "type": "Surface Anomaly",
+          "label": "Unclassified Surface Mark",
+          "confidence": 81.6,
+          "severity": "MINOR",
+          "location": "Lower-left page area",
+          "bbox": {
+            "x": 9.9,
+            "y": 81.6,
+            "width": 13.6,
+            "height": 6.9
+          },
+          "description": "Anomalous surface feature detected at Lower-left page area (~109px prominence).",
+          "suggestedAction": "Record minor surface anomaly in batch inspection log.",
+          "_meta": {
+            "source": "INDEPENDENT_STROKE",
+            "raw_bbox": [
+              79,
+              898,
+              109,
+              76
+            ],
+            "area_px": 496,
+            "max_dim": 109
+          },
+          "id": "DEF-03"
+        }
+      ],
+      "imageAnalysis": {
+        "width": 1080,
+        "height": 1528,
+        "blurVariance": 47.81,
+        "isBlurry": false,
+        "notebookDetected": true,
+        "meanBrightness": 184.6,
+        "contrast": 14.4,
+        "meanSsim": 0.7319,
+        "referenceUsed": true,
+        "alignmentMethod": "DIRECT_RESIZE",
+        "rulingDetected": true,
+        "rulingSpacing": 46
+      },
+      "diagnosticMessage": "Non-conformance detected: Torn / Damaged Page Corner at Upper-center page area — Severity: CRITICAL. Bounding box: x=0.0%, y=0.0%, w=100.0%, h=24.6%.",
+      "referenceInfo": {
+        "exists": true,
+        "filename": "notebook_clean_reference.jpg",
+        "path": "reference/notebook_clean_reference.jpg",
+        "url": "/reference/notebook_clean_reference.jpg?t=1789769900128.7312",
+        "updatedAt": "2026-09-18T22:18:20.129Z",
+        "sizeBytes": 87864
+      },
+      "rootCause": {
+        "process": "Cutting & Trimming",
+        "defectType": "Torn Page",
+        "defectCount": 1,
+        "totalInspections": 24,
+        "defectRate": "4.2%",
+        "confidence": "Moderate",
+        "probableCause": "Trimmer blade edge wear or sheet clamp tension excess",
+        "recommendedAction": "Inspect Cutting & Trimming parameters and verify calibration before next production run.",
+        "disclaimer": "Probable cause based on historical correlation — not confirmed physical cause."
+      },
+      "prediction": {
+        "active": false,
+        "headline": "STABLE: Production Quality Within Control Limits",
+        "summary": "Defect rate is stable or declining across current inspection batch.",
+        "riskLevel": "LOW",
+        "currentDefectRate": "50.0%",
+        "previousDefectRate": "83.3%",
+        "currentBatchTrend": "Nominal drift",
+        "futureDefectRisk": "Low",
+        "recommendedAction": "Continue current line monitoring parameters."
+      },
+      "passport": {
+        "passportId": "PASSPORT-VIZ-2026-0025",
+        "hash": "SHA256-A4792C8BFF9CCA2C",
+        "verifiedBy": "VIZORIS Vision Intelligence Engine v2.4",
+        "issuedAt": "2026-09-19T01:11:31.791Z"
+      },
+      "scannerSource": "USB_MOBILE_SCANNER"
+    },
+    {
+      "id": "VIZ-2026-0024",
+      "productId": "VIZ-2026-0024",
+      "productType": "Notebook",
+      "name": "Notebook Scan VIZ-2026-0024",
+      "image": "/uploads/notebook-scan-1789779995356-NB-SCAN-5624.jpg",
+      "originalFilename": "notebook-scan-1789779995356-NB-SCAN-5624.jpg",
+      "timestamp": "2026-09-19T01:06:37.786Z",
+      "inspectedAt": "2026-09-19T01:06:37.786Z",
+      "status": "DEFECT DETECTED",
+      "qualityScore": 50,
+      "confidence": 95,
+      "severity": "CRITICAL",
+      "defects": [
+        {
+          "type": "Pen Line / Writing",
+          "label": "Stray Pen / Ink Stroke",
+          "confidence": 93.7,
+          "severity": "CRITICAL",
+          "location": "Mid-body-left page area",
+          "bbox": {
+            "x": 9.4,
+            "y": 45.7,
+            "width": 1.2,
+            "height": 40.6
+          },
+          "description": "Linear or curved pen/pencil mark detected (~447px span, bbox 1.2%x40.6%). Crosses normal notebook ruling structure — stray mark confirmed.",
+          "suggestedAction": "Quarantine notebook unit; investigate printing/damage source.",
+          "_meta": {
+            "source": "INDEPENDENT_STROKE",
+            "raw_bbox": [
+              75,
+              503,
+              10,
+              447
+            ],
+            "area_px": 1886,
+            "max_dim": 447
+          },
+          "id": "DEF-01"
+        },
+        {
+          "type": "Pen Line / Writing",
+          "label": "Stray Pen / Ink Stroke",
+          "confidence": 95,
+          "severity": "MODERATE",
+          "location": "Upper-center page area",
+          "bbox": {
+            "x": 39.9,
+            "y": 5,
+            "width": 9.9,
+            "height": 5.7
+          },
+          "description": "Linear or curved pen/pencil mark detected (~79px span, bbox 9.9%x5.7%). Crosses normal notebook ruling structure — stray mark confirmed.",
+          "suggestedAction": "Flag unit for manual QA review before packaging.",
+          "_meta": {
+            "source": "INDEPENDENT_COLOR_INK",
+            "raw_bbox": [
+              319,
+              55,
+              79,
+              63
+            ],
+            "area_px": 4275,
+            "max_dim": 79
+          },
+          "id": "DEF-02"
+        },
+        {
+          "type": "Pen Line / Writing",
+          "label": "Stray Pen / Ink Stroke",
+          "confidence": 81.2,
+          "severity": "MINOR",
+          "location": "Lower-left page area",
+          "bbox": {
+            "x": 17.1,
+            "y": 72.2,
+            "width": 14.2,
+            "height": 2.5
+          },
+          "description": "Linear or curved pen/pencil mark detected (~114px span, bbox 14.2%x2.5%). Crosses normal notebook ruling structure — stray mark confirmed.",
+          "suggestedAction": "Record minor surface anomaly in batch inspection log.",
+          "_meta": {
+            "source": "INDEPENDENT_STROKE",
+            "raw_bbox": [
+              137,
+              794,
+              114,
+              28
+            ],
+            "area_px": 307,
+            "max_dim": 114
+          },
+          "id": "DEF-03"
+        },
+        {
+          "type": "Surface Anomaly",
+          "label": "Unclassified Surface Mark",
+          "confidence": 81.3,
+          "severity": "MINOR",
+          "location": "Lower-right page area",
+          "bbox": {
+            "x": 67.9,
+            "y": 65.8,
+            "width": 11.2,
+            "height": 9.7
+          },
+          "description": "Anomalous surface feature detected at Lower-right page area (~107px prominence).",
+          "suggestedAction": "Record minor surface anomaly in batch inspection log.",
+          "_meta": {
+            "source": "INDEPENDENT_STROKE",
+            "raw_bbox": [
+              543,
+              724,
+              90,
+              107
+            ],
+            "area_px": 437,
+            "max_dim": 107
+          },
+          "id": "DEF-04"
+        },
+        {
+          "type": "Pen Line / Writing",
+          "label": "Stray Pen / Ink Stroke",
+          "confidence": 78.7,
+          "severity": "MINOR",
+          "location": "Mid-body-right page area",
+          "bbox": {
+            "x": 72,
+            "y": 45.9,
+            "width": 1.1,
+            "height": 5.6
+          },
+          "description": "Linear or curved pen/pencil mark detected (~62px span, bbox 1.1%x5.6%). Crosses normal notebook ruling structure — stray mark confirmed.",
+          "suggestedAction": "Record minor surface anomaly in batch inspection log.",
+          "_meta": {
+            "source": "INDEPENDENT_STROKE",
+            "raw_bbox": [
+              576,
+              505,
+              9,
+              62
+            ],
+            "area_px": 130,
+            "max_dim": 62
+          },
+          "id": "DEF-05"
+        },
+        {
+          "type": "Pen Line / Writing",
+          "label": "Stray Pen / Ink Stroke",
+          "confidence": 78.7,
+          "severity": "MINOR",
+          "location": "Mid-body-right page area",
+          "bbox": {
+            "x": 88.5,
+            "y": 37.4,
+            "width": 1.4,
+            "height": 4.7
+          },
+          "description": "Linear or curved pen/pencil mark detected (~52px span, bbox 1.4%x4.7%). Crosses normal notebook ruling structure — stray mark confirmed.",
+          "suggestedAction": "Record minor surface anomaly in batch inspection log.",
+          "_meta": {
+            "source": "INDEPENDENT_STROKE",
+            "raw_bbox": [
+              708,
+              411,
+              11,
+              52
+            ],
+            "area_px": 253,
+            "max_dim": 52
+          },
+          "id": "DEF-06"
+        },
+        {
+          "type": "Pen Line / Writing",
+          "label": "Stray Pen / Ink Stroke",
+          "confidence": 79.3,
+          "severity": "MINOR",
+          "location": "Upper-left page area",
+          "bbox": {
+            "x": 8.5,
+            "y": 25.5,
+            "width": 1,
+            "height": 5.9
+          },
+          "description": "Linear or curved pen/pencil mark detected (~65px span, bbox 1.0%x5.9%). Crosses normal notebook ruling structure — stray mark confirmed.",
+          "suggestedAction": "Record minor surface anomaly in batch inspection log.",
+          "_meta": {
+            "source": "INDEPENDENT_STROKE",
+            "raw_bbox": [
+              68,
+              280,
+              8,
+              65
+            ],
+            "area_px": 298,
+            "max_dim": 65
+          },
+          "id": "DEF-07"
+        },
+        {
+          "type": "Surface Anomaly",
+          "label": "Unclassified Surface Mark",
+          "confidence": 79.9,
+          "severity": "MINOR",
+          "location": "Upper-left page area",
+          "bbox": {
+            "x": 17.2,
+            "y": 18.5,
+            "width": 8,
+            "height": 6.7
+          },
+          "description": "Anomalous surface feature detected at Upper-left page area (~74px prominence).",
+          "suggestedAction": "Record minor surface anomaly in batch inspection log.",
+          "_meta": {
+            "source": "INDEPENDENT_STROKE",
+            "raw_bbox": [
+              138,
+              203,
+              64,
+              74
+            ],
+            "area_px": 364,
+            "max_dim": 74
+          },
+          "id": "DEF-08"
+        },
+        {
+          "type": "Surface Anomaly",
+          "label": "Unclassified Surface Mark",
+          "confidence": 78.9,
+          "severity": "MINOR",
+          "location": "Upper-right page area",
+          "bbox": {
+            "x": 70.9,
+            "y": 17.6,
+            "width": 5.4,
+            "height": 3.9
+          },
+          "description": "Anomalous surface feature detected at Upper-right page area (~43px prominence).",
+          "suggestedAction": "Record minor surface anomaly in batch inspection log.",
+          "_meta": {
+            "source": "INDEPENDENT_STROKE",
+            "raw_bbox": [
+              567,
+              194,
+              43,
+              43
+            ],
+            "area_px": 431,
+            "max_dim": 43
+          },
+          "id": "DEF-09"
+        }
+      ],
+      "imageAnalysis": {
+        "width": 1080,
+        "height": 1528,
+        "blurVariance": 36.15,
+        "isBlurry": false,
+        "notebookDetected": true,
+        "meanBrightness": 152.1,
+        "contrast": 61.2,
+        "meanSsim": 0.5483,
+        "referenceUsed": true,
+        "alignmentMethod": "ECC_EUCLIDEAN",
+        "rulingDetected": true,
+        "rulingSpacing": 34
+      },
+      "diagnosticMessage": "Non-conformance detected: Stray Pen / Ink Stroke at Mid-body-left page area — Severity: CRITICAL. Bounding box: x=9.4%, y=45.7%, w=1.2%, h=40.6%.",
+      "referenceInfo": {
+        "exists": true,
+        "filename": "notebook_clean_reference.jpg",
+        "path": "reference/notebook_clean_reference.jpg",
+        "url": "/reference/notebook_clean_reference.jpg?t=1789769900128.7312",
+        "updatedAt": "2026-09-18T22:18:20.129Z",
+        "sizeBytes": 87864
+      },
+      "rootCause": {
+        "process": "Printing / Manual Handling",
+        "defectType": "Pen Line / Writing",
+        "defectCount": 9,
+        "totalInspections": 23,
+        "defectRate": "39.1%",
+        "confidence": "Moderate",
+        "probableCause": "Surface roller drag or stray marking during sheet collation",
+        "recommendedAction": "Inspect Printing / Manual Handling parameters and verify calibration before next production run.",
+        "disclaimer": "Probable cause based on historical correlation — not confirmed physical cause."
+      },
+      "prediction": {
+        "active": false,
+        "headline": "STABLE: Production Quality Within Control Limits",
+        "summary": "Defect rate is stable or declining across current inspection batch.",
+        "riskLevel": "LOW",
+        "currentDefectRate": "45.5%",
+        "previousDefectRate": "83.3%",
+        "currentBatchTrend": "Nominal drift",
+        "futureDefectRisk": "Low",
+        "recommendedAction": "Continue current line monitoring parameters."
+      },
+      "passport": {
+        "passportId": "PASSPORT-VIZ-2026-0024",
+        "hash": "SHA256-D668D0D627DDA2B3",
+        "verifiedBy": "VIZORIS Vision Intelligence Engine v2.4",
+        "issuedAt": "2026-09-19T01:06:37.792Z"
+      },
+      "scannerSource": "USB_MOBILE_SCANNER"
+    },
+    {
+      "id": "VIZ-2026-0023",
+      "productId": "VIZ-2026-0023",
+      "productType": "Notebook",
+      "name": "Notebook Scan VIZ-2026-0023",
+      "image": "/uploads/notebook-scan-1789779958761-NB-USB-8753.jpg",
+      "originalFilename": "notebook-scan-1789779958761-NB-USB-8753.jpg",
+      "timestamp": "2026-09-19T01:06:00.216Z",
+      "inspectedAt": "2026-09-19T01:06:00.216Z",
+      "status": "DEFECT DETECTED",
+      "qualityScore": 84,
+      "confidence": 85.2,
+      "severity": "MODERATE",
+      "defects": [
+        {
+          "type": "Surface Anomaly",
+          "label": "Unclassified Surface Mark",
+          "confidence": 85.2,
+          "severity": "MODERATE",
+          "location": "Mid-body-center page area",
+          "bbox": {
+            "x": 44.8,
+            "y": 41.2,
+            "width": 10.6,
+            "height": 7.5
+          },
+          "description": "Anomalous surface feature detected at Mid-body-center page area (~85px prominence).",
+          "suggestedAction": "Flag unit for manual QA review before packaging.",
+          "_meta": {
+            "source": "INDEPENDENT_STROKE",
+            "raw_bbox": [
+              358,
+              453,
+              85,
+              83
+            ],
+            "area_px": 6259,
+            "max_dim": 85
+          },
+          "id": "DEF-01"
+        }
+      ],
+      "imageAnalysis": {
+        "width": 731,
+        "height": 1024,
+        "blurVariance": 125.82,
+        "isBlurry": false,
+        "notebookDetected": true,
+        "meanBrightness": 188.1,
+        "contrast": 22.2,
+        "meanSsim": 0.9913,
+        "referenceUsed": true,
+        "alignmentMethod": "ECC_EUCLIDEAN",
+        "rulingDetected": true,
+        "rulingSpacing": 37
+      },
+      "diagnosticMessage": "Non-conformance detected: Unclassified Surface Mark at Mid-body-center page area — Severity: MODERATE. Bounding box: x=44.8%, y=41.2%, w=10.6%, h=7.5%.",
+      "referenceInfo": {
+        "exists": true,
+        "filename": "notebook_clean_reference.jpg",
+        "path": "reference/notebook_clean_reference.jpg",
+        "url": "/reference/notebook_clean_reference.jpg?t=1789769900128.7312",
+        "updatedAt": "2026-09-18T22:18:20.129Z",
+        "sizeBytes": 87864
+      },
+      "rootCause": {
+        "process": "Paper Feed / Raw Substrate",
+        "defectType": "Surface Anomaly",
+        "defectCount": 10,
+        "totalInspections": 22,
+        "defectRate": "45.5%",
+        "confidence": "Moderate",
+        "probableCause": "Foreign particle contamination or surface fiber inconsistency",
+        "recommendedAction": "Inspect Paper Feed / Raw Substrate parameters and verify calibration before next production run.",
+        "disclaimer": "Probable cause based on historical correlation — not confirmed physical cause."
+      },
+      "prediction": {
+        "active": false,
+        "headline": "STABLE: Production Quality Within Control Limits",
+        "summary": "Defect rate is stable or declining across current inspection batch.",
+        "riskLevel": "LOW",
+        "currentDefectRate": "45.5%",
+        "previousDefectRate": "81.8%",
+        "currentBatchTrend": "Nominal drift",
+        "futureDefectRisk": "Low",
+        "recommendedAction": "Continue current line monitoring parameters."
+      },
+      "passport": {
+        "passportId": "PASSPORT-VIZ-2026-0023",
+        "hash": "SHA256-A87B8ACD7BDF56D5",
+        "verifiedBy": "VIZORIS Vision Intelligence Engine v2.4",
+        "issuedAt": "2026-09-19T01:06:00.230Z"
+      },
+      "scannerSource": "USB_MOBILE_BRIDGE"
+    },
+    {
+      "id": "VIZ-2026-0022",
+      "productId": "VIZ-2026-0022",
+      "productType": "Notebook",
+      "name": "Notebook Scan VIZ-2026-0022",
+      "image": "/uploads/notebook-scan-1789779846407-NB-SCAN-6691.jpg",
+      "originalFilename": "notebook-scan-1789779846407-NB-SCAN-6691.jpg",
+      "timestamp": "2026-09-19T01:04:09.717Z",
+      "inspectedAt": "2026-09-19T01:04:09.717Z",
+      "status": "DEFECT DETECTED",
+      "qualityScore": 50,
+      "confidence": 98.8,
+      "severity": "CRITICAL",
+      "defects": [
+        {
+          "type": "Pen Line / Writing",
+          "label": "Stray Pen / Ink Stroke",
+          "confidence": 98.8,
+          "severity": "CRITICAL",
+          "location": "Upper-center page area",
+          "bbox": {
+            "x": 7.6,
+            "y": 5,
+            "width": 65,
+            "height": 13.4
+          },
+          "description": "Linear or curved pen/pencil mark detected (~520px span, bbox 65.0%x13.4%). Crosses normal notebook ruling structure — stray mark confirmed.",
+          "suggestedAction": "Quarantine notebook unit; investigate printing/damage source.",
+          "_meta": {
+            "source": "INDEPENDENT_COLOR_INK",
+            "raw_bbox": [
+              61,
+              55,
+              520,
+              147
+            ],
+            "area_px": 37201,
+            "max_dim": 520
+          },
+          "id": "DEF-01"
+        },
+        {
+          "type": "Pen Line / Writing",
+          "label": "Stray Pen / Ink Stroke",
+          "confidence": 84.7,
+          "severity": "MODERATE",
+          "location": "Mid-body-left page area",
+          "bbox": {
+            "x": 7.8,
+            "y": 28.1,
+            "width": 3.9,
+            "height": 16.3
+          },
+          "description": "Linear or curved pen/pencil mark detected (~179px span, bbox 3.9%x16.3%). Crosses normal notebook ruling structure — stray mark confirmed.",
+          "suggestedAction": "Flag unit for manual QA review before packaging.",
+          "_meta": {
+            "source": "INDEPENDENT_STROKE",
+            "raw_bbox": [
+              62,
+              309,
+              31,
+              179
+            ],
+            "area_px": 656,
+            "max_dim": 179
+          },
+          "id": "DEF-02"
+        },
+        {
+          "type": "Pen Line / Writing",
+          "label": "Stray Pen / Ink Stroke",
+          "confidence": 92,
+          "severity": "MINOR",
+          "location": "Lower-right page area",
+          "bbox": {
+            "x": 64.6,
+            "y": 86.2,
+            "width": 7.1,
+            "height": 5.9
+          },
+          "description": "Linear or curved pen/pencil mark detected (~65px span, bbox 7.1%x5.9%). Crosses normal notebook ruling structure — stray mark confirmed.",
+          "suggestedAction": "Record minor surface anomaly in batch inspection log.",
+          "_meta": {
+            "source": "INDEPENDENT_COLOR_INK",
+            "raw_bbox": [
+              517,
+              948,
+              57,
+              65
+            ],
+            "area_px": 1179,
+            "max_dim": 65
+          },
+          "id": "DEF-03"
+        },
+        {
+          "type": "Pen Line / Writing",
+          "label": "Stray Pen / Ink Stroke",
+          "confidence": 77.9,
+          "severity": "MINOR",
+          "location": "Lower-left page area",
+          "bbox": {
+            "x": 9.4,
+            "y": 87.9,
+            "width": 2.6,
+            "height": 3.9
+          },
+          "description": "Linear or curved pen/pencil mark detected (~43px span, bbox 2.6%x3.9%). Crosses normal notebook ruling structure — stray mark confirmed.",
+          "suggestedAction": "Record minor surface anomaly in batch inspection log.",
+          "_meta": {
+            "source": "INDEPENDENT_STROKE",
+            "raw_bbox": [
+              75,
+              967,
+              21,
+              43
+            ],
+            "area_px": 89,
+            "max_dim": 43
+          },
+          "id": "DEF-04"
+        }
+      ],
+      "imageAnalysis": {
+        "width": 1080,
+        "height": 1528,
+        "blurVariance": 48.4,
+        "isBlurry": false,
+        "notebookDetected": true,
+        "meanBrightness": 137.8,
+        "contrast": 70,
+        "meanSsim": 0.4928,
+        "referenceUsed": true,
+        "alignmentMethod": "ECC_EUCLIDEAN",
+        "rulingDetected": true,
+        "rulingSpacing": 29
+      },
+      "diagnosticMessage": "Non-conformance detected: Stray Pen / Ink Stroke at Upper-center page area — Severity: CRITICAL. Bounding box: x=7.6%, y=5.0%, w=65.0%, h=13.4%.",
+      "referenceInfo": {
+        "exists": true,
+        "filename": "notebook_clean_reference.jpg",
+        "path": "reference/notebook_clean_reference.jpg",
+        "url": "/reference/notebook_clean_reference.jpg?t=1789769900128.7312",
+        "updatedAt": "2026-09-18T22:18:20.129Z",
+        "sizeBytes": 87864
+      },
+      "rootCause": {
+        "process": "Printing / Manual Handling",
+        "defectType": "Pen Line / Writing",
+        "defectCount": 5,
+        "totalInspections": 21,
+        "defectRate": "23.8%",
+        "confidence": "Moderate",
+        "probableCause": "Surface roller drag or stray marking during sheet collation",
+        "recommendedAction": "Inspect Printing / Manual Handling parameters and verify calibration before next production run.",
+        "disclaimer": "Probable cause based on historical correlation — not confirmed physical cause."
+      },
+      "prediction": {
+        "active": false,
+        "headline": "STABLE: Production Quality Within Control Limits",
+        "summary": "Defect rate is stable or declining across current inspection batch.",
+        "riskLevel": "LOW",
+        "currentDefectRate": "40.0%",
+        "previousDefectRate": "81.8%",
+        "currentBatchTrend": "Nominal drift",
+        "futureDefectRisk": "Low",
+        "recommendedAction": "Continue current line monitoring parameters."
+      },
+      "passport": {
+        "passportId": "PASSPORT-VIZ-2026-0022",
+        "hash": "SHA256-1815D9A0C8D21E95",
+        "verifiedBy": "VIZORIS Vision Intelligence Engine v2.4",
+        "issuedAt": "2026-09-19T01:04:09.723Z"
+      },
+      "scannerSource": "USB_MOBILE_SCANNER"
+    },
+    {
+      "id": "VIZ-2026-0021",
+      "productId": "VIZ-2026-0021",
+      "productType": "Notebook",
+      "name": "Notebook Scan VIZ-2026-0021",
+      "image": "/uploads/notebook-scan-1789778818053-NB-PAGE-21.jpg",
+      "originalFilename": "notebook-scan-1789778818053-NB-PAGE-21.jpg",
+      "timestamp": "2026-09-19T00:46:59.232Z",
+      "inspectedAt": "2026-09-19T00:46:59.232Z",
+      "status": "PASSED",
+      "qualityScore": 99.5,
+      "confidence": 99,
+      "severity": "NOMINAL",
+      "defects": [],
+      "imageAnalysis": {
+        "width": 731,
+        "height": 1024,
+        "blurVariance": 90.87,
+        "isBlurry": false,
+        "notebookDetected": true,
+        "meanBrightness": 189,
+        "contrast": 18.8,
+        "meanSsim": 0.9983,
+        "referenceUsed": true,
+        "alignmentMethod": "ECC_EUCLIDEAN",
+        "rulingDetected": true,
+        "rulingSpacing": 37
+      },
+      "diagnosticMessage": "Notebook quality inspection PASSED. Surface, ruling lines, and binding verified conformant. No abnormal ink strokes, stains, or structural deviations detected (SSIM: 0.998).",
+      "referenceInfo": {
+        "exists": true,
+        "filename": "notebook_clean_reference.jpg",
+        "path": "reference/notebook_clean_reference.jpg",
+        "url": "/reference/notebook_clean_reference.jpg?t=1789769900128.7312",
+        "updatedAt": "2026-09-18T22:18:20.129Z",
+        "sizeBytes": 87864
+      },
+      "rootCause": {
+        "process": "Paper Feed / Raw Substrate",
+        "defectType": "Surface Anomaly",
+        "defectCount": 10,
+        "totalInspections": 20,
+        "defectRate": "50.0%",
+        "confidence": "Moderate",
+        "probableCause": "Foreign particle contamination or surface fiber inconsistency",
+        "recommendedAction": "Inspect Paper Feed / Raw Substrate parameters and verify calibration before next production run.",
+        "disclaimer": "Probable cause based on historical correlation — not confirmed physical cause."
+      },
+      "prediction": {
+        "active": false,
+        "headline": "STABLE: Production Quality Within Control Limits",
+        "summary": "Defect rate is stable or declining across current inspection batch.",
+        "riskLevel": "LOW",
+        "currentDefectRate": "40.0%",
+        "previousDefectRate": "90.0%",
+        "currentBatchTrend": "Nominal drift",
+        "futureDefectRisk": "Low",
+        "recommendedAction": "Continue current line monitoring parameters."
+      },
+      "passport": {
+        "passportId": "PASSPORT-VIZ-2026-0021",
+        "hash": "SHA256-9B6487C9CE90A472",
+        "verifiedBy": "VIZORIS Vision Intelligence Engine v2.4",
+        "issuedAt": "2026-09-19T00:46:59.241Z"
+      },
+      "scannerSource": "USB_MOBILE_BRIDGE"
+    },
+    {
+      "id": "VIZ-2026-0020",
+      "productId": "VIZ-2026-0020",
+      "productType": "Notebook",
+      "name": "Notebook Scan VIZ-2026-0020",
+      "image": "/uploads/notebook-scan-1789773715540-NB-USB-5538.jpg",
+      "originalFilename": "notebook-scan-1789773715540-NB-USB-5538.jpg",
+      "timestamp": "2026-09-18T23:21:57.189Z",
+      "inspectedAt": "2026-09-18T23:21:57.189Z",
+      "status": "DEFECT DETECTED",
+      "qualityScore": 84,
+      "confidence": 85.2,
+      "severity": "MODERATE",
+      "defects": [
+        {
+          "type": "Surface Anomaly",
+          "label": "Unclassified Surface Mark",
+          "confidence": 85.2,
+          "severity": "MODERATE",
+          "location": "Mid-body-center page area",
+          "bbox": {
+            "x": 44.8,
+            "y": 41.2,
+            "width": 10.6,
+            "height": 7.5
+          },
+          "description": "Anomalous surface feature detected at Mid-body-center page area (~85px prominence).",
+          "suggestedAction": "Flag unit for manual QA review before packaging.",
+          "_meta": {
+            "source": "INDEPENDENT_STROKE",
+            "raw_bbox": [
+              358,
+              453,
+              85,
+              83
+            ],
+            "area_px": 6259,
+            "max_dim": 85
+          },
+          "id": "DEF-01"
+        }
+      ],
+      "imageAnalysis": {
+        "width": 731,
+        "height": 1024,
+        "blurVariance": 125.82,
+        "isBlurry": false,
+        "notebookDetected": true,
+        "meanBrightness": 188.1,
+        "contrast": 22.2,
+        "meanSsim": 0.9913,
+        "referenceUsed": true,
+        "alignmentMethod": "ECC_EUCLIDEAN",
+        "rulingDetected": true,
+        "rulingSpacing": 37
+      },
+      "diagnosticMessage": "Non-conformance detected: Unclassified Surface Mark at Mid-body-center page area — Severity: MODERATE. Bounding box: x=44.8%, y=41.2%, w=10.6%, h=7.5%.",
+      "referenceInfo": {
+        "exists": true,
+        "filename": "notebook_clean_reference.jpg",
+        "path": "reference/notebook_clean_reference.jpg",
+        "url": "/reference/notebook_clean_reference.jpg?t=1789769900128.7312",
+        "updatedAt": "2026-09-18T22:18:20.129Z",
+        "sizeBytes": 87864
+      },
+      "rootCause": {
+        "process": "Paper Feed / Raw Substrate",
+        "defectType": "Surface Anomaly",
+        "defectCount": 9,
+        "totalInspections": 19,
+        "defectRate": "47.4%",
+        "confidence": "Moderate",
+        "probableCause": "Foreign particle contamination or surface fiber inconsistency",
+        "recommendedAction": "Inspect Paper Feed / Raw Substrate parameters and verify calibration before next production run.",
+        "disclaimer": "Probable cause based on historical correlation — not confirmed physical cause."
+      },
+      "prediction": {
+        "active": false,
+        "headline": "STABLE: Production Quality Within Control Limits",
+        "summary": "Defect rate is stable or declining across current inspection batch.",
+        "riskLevel": "LOW",
+        "currentDefectRate": "33.3%",
+        "previousDefectRate": "90.0%",
+        "currentBatchTrend": "Nominal drift",
+        "futureDefectRisk": "Low",
+        "recommendedAction": "Continue current line monitoring parameters."
+      },
+      "passport": {
+        "passportId": "PASSPORT-VIZ-2026-0020",
+        "hash": "SHA256-B5DE47AD5F0950B7",
+        "verifiedBy": "VIZORIS Vision Intelligence Engine v2.4",
+        "issuedAt": "2026-09-18T23:21:57.194Z"
+      },
+      "scannerSource": "USB_MOBILE_BRIDGE"
+    },
+    {
+      "id": "VIZ-2026-0019",
+      "productId": "VIZ-2026-0019",
+      "productType": "Notebook",
+      "name": "Notebook Scan VIZ-2026-0019",
+      "image": "/uploads/notebook-scan-1789773502876-NB-00102.jpg",
+      "originalFilename": "notebook-scan-1789773502876-NB-00102.jpg",
+      "timestamp": "2026-09-18T23:18:24.178Z",
+      "inspectedAt": "2026-09-18T23:18:24.178Z",
+      "status": "DEFECT DETECTED",
+      "qualityScore": 50,
+      "confidence": 98.8,
+      "severity": "CRITICAL",
+      "defects": [
+        {
+          "type": "Pen Line / Writing",
+          "label": "Stray Pen / Ink Stroke",
+          "confidence": 98.8,
+          "severity": "CRITICAL",
+          "location": "Lower-center page area",
+          "bbox": {
+            "x": 8.5,
+            "y": 60,
+            "width": 83.8,
+            "height": 35
+          },
+          "description": "Linear or curved pen/pencil mark detected (~670px span, bbox 83.8%x35.0%). Crosses normal notebook ruling structure — stray mark confirmed.",
+          "suggestedAction": "Quarantine notebook unit; investigate printing/damage source.",
+          "_meta": {
+            "source": "INDEPENDENT_COLOR_INK",
+            "raw_bbox": [
+              68,
+              660,
+              670,
+              385
+            ],
+            "area_px": 21757,
+            "max_dim": 670
+          },
+          "id": "DEF-01"
+        },
+        {
+          "type": "Pen Line / Writing",
+          "label": "Stray Pen / Ink Stroke",
+          "confidence": 98.8,
+          "severity": "CRITICAL",
+          "location": "Upper-center page area",
+          "bbox": {
+            "x": 9.4,
+            "y": 5,
+            "width": 83,
+            "height": 47.9
+          },
+          "description": "Linear or curved pen/pencil mark detected (~664px span, bbox 83.0%x47.9%). Crosses normal notebook ruling structure — stray mark confirmed.",
+          "suggestedAction": "Quarantine notebook unit; investigate printing/damage source.",
+          "_meta": {
+            "source": "INDEPENDENT_COLOR_INK",
+            "raw_bbox": [
+              75,
+              55,
+              664,
+              527
+            ],
+            "area_px": 30648,
+            "max_dim": 664
+          },
+          "id": "DEF-02"
+        }
+      ],
+      "imageAnalysis": {
+        "width": 1080,
+        "height": 1920,
+        "blurVariance": 10556.71,
+        "isBlurry": false,
+        "notebookDetected": true,
+        "meanBrightness": 64.3,
+        "contrast": 26.3,
+        "meanSsim": 0.1569,
+        "referenceUsed": true,
+        "alignmentMethod": "DIRECT_RESIZE",
+        "rulingDetected": false,
+        "rulingSpacing": null
+      },
+      "diagnosticMessage": "Non-conformance detected: Stray Pen / Ink Stroke at Lower-center page area — Severity: CRITICAL. Bounding box: x=8.5%, y=60.0%, w=83.8%, h=35.0%.",
+      "referenceInfo": {
+        "exists": true,
+        "filename": "notebook_clean_reference.jpg",
+        "path": "reference/notebook_clean_reference.jpg",
+        "url": "/reference/notebook_clean_reference.jpg?t=1789769900128.7312",
+        "updatedAt": "2026-09-18T22:18:20.129Z",
+        "sizeBytes": 87864
+      },
+      "rootCause": {
+        "process": "Printing / Manual Handling",
+        "defectType": "Pen Line / Writing",
+        "defectCount": 3,
+        "totalInspections": 18,
+        "defectRate": "16.7%",
+        "confidence": "Moderate",
+        "probableCause": "Surface roller drag or stray marking during sheet collation",
+        "recommendedAction": "Inspect Printing / Manual Handling parameters and verify calibration before next production run.",
+        "disclaimer": "Probable cause based on historical correlation — not confirmed physical cause."
+      },
+      "prediction": {
+        "active": false,
+        "headline": "STABLE: Production Quality Within Control Limits",
+        "summary": "Defect rate is stable or declining across current inspection batch.",
+        "riskLevel": "LOW",
+        "currentDefectRate": "33.3%",
+        "previousDefectRate": "88.9%",
+        "currentBatchTrend": "Nominal drift",
+        "futureDefectRisk": "Low",
+        "recommendedAction": "Continue current line monitoring parameters."
+      },
+      "passport": {
+        "passportId": "PASSPORT-VIZ-2026-0019",
+        "hash": "SHA256-B6510648B96573FB",
+        "verifiedBy": "VIZORIS Vision Intelligence Engine v2.4",
+        "issuedAt": "2026-09-18T23:18:24.226Z"
+      },
+      "scannerSource": "USB_MOBILE_BRIDGE"
+    },
+    {
+      "id": "VIZ-2026-0018",
+      "productId": "VIZ-2026-0018",
+      "productType": "Notebook",
+      "name": "Notebook Scan VIZ-2026-0018",
+      "image": "/uploads/notebook-scan-1789771641276-WhatsApp_Image_2026-09-18_at_10_20_51_PM.jpeg",
+      "originalFilename": "WhatsApp Image 2026-09-18 at 10.20.51 PM.jpeg",
+      "timestamp": "2026-09-18T22:47:24.166Z",
+      "inspectedAt": "2026-09-18T22:47:24.166Z",
+      "status": "PASSED",
+      "qualityScore": 99.5,
+      "confidence": 92,
+      "severity": "NOMINAL",
+      "defects": [],
+      "imageAnalysis": {
+        "width": 900,
+        "height": 1279,
+        "blurVariance": 140.99,
+        "isBlurry": false,
+        "notebookDetected": true,
+        "meanBrightness": 182,
+        "contrast": 33.8,
+        "meanSsim": 0.6544,
+        "referenceUsed": true,
+        "alignmentMethod": "ECC_EUCLIDEAN",
+        "rulingDetected": true,
+        "rulingSpacing": 37
+      },
+      "diagnosticMessage": "Notebook quality inspection PASSED. Surface, ruling lines, and binding verified conformant. No abnormal ink strokes, stains, or structural deviations detected (SSIM: 0.654).",
+      "referenceInfo": {
+        "exists": true,
+        "filename": "notebook_clean_reference.jpg",
+        "path": "reference/notebook_clean_reference.jpg",
+        "url": "/reference/notebook_clean_reference.jpg?t=1789769900128.7312",
+        "updatedAt": "2026-09-18T22:18:20.129Z",
+        "sizeBytes": 87864
+      },
+      "rootCause": {
+        "process": "Paper Feed / Raw Substrate",
+        "defectType": "Surface Anomaly",
+        "defectCount": 9,
+        "totalInspections": 17,
+        "defectRate": "52.9%",
+        "confidence": "Moderate",
+        "probableCause": "Foreign particle contamination or surface fiber inconsistency",
+        "recommendedAction": "Inspect Paper Feed / Raw Substrate parameters and verify calibration before next production run.",
+        "disclaimer": "Probable cause based on historical correlation — not confirmed physical cause."
+      },
+      "prediction": {
+        "active": false,
+        "headline": "STABLE: Production Quality Within Control Limits",
+        "summary": "Defect rate is stable or declining across current inspection batch.",
+        "riskLevel": "LOW",
+        "currentDefectRate": "37.5%",
+        "previousDefectRate": "88.9%",
+        "currentBatchTrend": "Nominal drift",
+        "futureDefectRisk": "Low",
+        "recommendedAction": "Continue current line monitoring parameters."
+      },
+      "passport": {
+        "passportId": "PASSPORT-VIZ-2026-0018",
+        "hash": "SHA256-75AE6AD584B2B6CD",
+        "verifiedBy": "VIZORIS Vision Intelligence Engine v2.4",
+        "issuedAt": "2026-09-18T22:47:24.173Z"
+      },
+      "scannerSource": "DESKTOP_WEB_UPLOAD"
+    },
+    {
+      "id": "VIZ-2026-0017",
+      "productId": "VIZ-2026-0017",
+      "productType": "Notebook",
+      "name": "Notebook Scan VIZ-2026-0017",
+      "image": "/uploads/notebook-scan-1789771632576-WhatsApp_Image_2026-09-18_at_10_20_51_PM.jpeg",
+      "originalFilename": "WhatsApp Image 2026-09-18 at 10.20.51 PM.jpeg",
+      "timestamp": "2026-09-18T22:47:15.357Z",
+      "inspectedAt": "2026-09-18T22:47:15.357Z",
+      "status": "PASSED",
+      "qualityScore": 99.5,
+      "confidence": 92,
+      "severity": "NOMINAL",
+      "defects": [],
+      "imageAnalysis": {
+        "width": 900,
+        "height": 1279,
+        "blurVariance": 140.99,
+        "isBlurry": false,
+        "notebookDetected": true,
+        "meanBrightness": 182,
+        "contrast": 33.8,
+        "meanSsim": 0.6544,
+        "referenceUsed": true,
+        "alignmentMethod": "ECC_EUCLIDEAN",
+        "rulingDetected": true,
+        "rulingSpacing": 37
+      },
+      "diagnosticMessage": "Notebook quality inspection PASSED. Surface, ruling lines, and binding verified conformant. No abnormal ink strokes, stains, or structural deviations detected (SSIM: 0.654).",
+      "referenceInfo": {
+        "exists": true,
+        "filename": "notebook_clean_reference.jpg",
+        "path": "reference/notebook_clean_reference.jpg",
+        "url": "/reference/notebook_clean_reference.jpg?t=1789769900128.7312",
+        "updatedAt": "2026-09-18T22:18:20.129Z",
+        "sizeBytes": 87864
+      },
+      "rootCause": {
+        "process": "Paper Feed / Raw Substrate",
+        "defectType": "Surface Anomaly",
+        "defectCount": 9,
+        "totalInspections": 16,
+        "defectRate": "56.3%",
+        "confidence": "Moderate",
+        "probableCause": "Foreign particle contamination or surface fiber inconsistency",
+        "recommendedAction": "Inspect Paper Feed / Raw Substrate parameters and verify calibration before next production run.",
+        "disclaimer": "Probable cause based on historical correlation — not confirmed physical cause."
+      },
+      "prediction": {
+        "active": false,
+        "headline": "STABLE: Production Quality Within Control Limits",
+        "summary": "Defect rate is stable or declining across current inspection batch.",
+        "riskLevel": "LOW",
+        "currentDefectRate": "50.0%",
+        "previousDefectRate": "87.5%",
+        "currentBatchTrend": "Nominal drift",
+        "futureDefectRisk": "Low",
+        "recommendedAction": "Continue current line monitoring parameters."
+      },
+      "passport": {
+        "passportId": "PASSPORT-VIZ-2026-0017",
+        "hash": "SHA256-E47D4B3A3DE4B28C",
+        "verifiedBy": "VIZORIS Vision Intelligence Engine v2.4",
+        "issuedAt": "2026-09-18T22:47:15.363Z"
+      },
+      "scannerSource": "DESKTOP_WEB_UPLOAD"
+    },
+    {
+      "id": "VIZ-2026-0016",
+      "productId": "VIZ-2026-0016",
+      "productType": "Notebook",
+      "name": "Notebook Scan VIZ-2026-0016",
+      "image": "/uploads/notebook-scan-1789771624070-WhatsApp_Image_2026-09-18_at_10_20_51_PM.jpeg",
+      "originalFilename": "WhatsApp Image 2026-09-18 at 10.20.51 PM.jpeg",
+      "timestamp": "2026-09-18T22:47:07.159Z",
+      "inspectedAt": "2026-09-18T22:47:07.159Z",
+      "status": "PASSED",
+      "qualityScore": 99.5,
+      "confidence": 92,
+      "severity": "NOMINAL",
+      "defects": [],
+      "imageAnalysis": {
+        "width": 900,
+        "height": 1279,
+        "blurVariance": 140.99,
+        "isBlurry": false,
+        "notebookDetected": true,
+        "meanBrightness": 182,
+        "contrast": 33.8,
+        "meanSsim": 0.6544,
+        "referenceUsed": true,
+        "alignmentMethod": "ECC_EUCLIDEAN",
+        "rulingDetected": true,
+        "rulingSpacing": 37
+      },
+      "diagnosticMessage": "Notebook quality inspection PASSED. Surface, ruling lines, and binding verified conformant. No abnormal ink strokes, stains, or structural deviations detected (SSIM: 0.654).",
+      "referenceInfo": {
+        "exists": true,
+        "filename": "notebook_clean_reference.jpg",
+        "path": "reference/notebook_clean_reference.jpg",
+        "url": "/reference/notebook_clean_reference.jpg?t=1789769900128.7312",
+        "updatedAt": "2026-09-18T22:18:20.129Z",
+        "sizeBytes": 87864
+      },
+      "rootCause": {
+        "process": "Paper Feed / Raw Substrate",
+        "defectType": "Surface Anomaly",
+        "defectCount": 9,
+        "totalInspections": 15,
+        "defectRate": "60.0%",
+        "confidence": "Moderate",
+        "probableCause": "Foreign particle contamination or surface fiber inconsistency",
+        "recommendedAction": "Inspect Paper Feed / Raw Substrate parameters and verify calibration before next production run.",
+        "disclaimer": "Probable cause based on historical correlation — not confirmed physical cause."
+      },
+      "prediction": {
+        "active": false,
+        "headline": "STABLE: Production Quality Within Control Limits",
+        "summary": "Defect rate is stable or declining across current inspection batch.",
+        "riskLevel": "LOW",
+        "currentDefectRate": "57.1%",
+        "previousDefectRate": "87.5%",
+        "currentBatchTrend": "Nominal drift",
+        "futureDefectRisk": "Low",
+        "recommendedAction": "Continue current line monitoring parameters."
+      },
+      "passport": {
+        "passportId": "PASSPORT-VIZ-2026-0016",
+        "hash": "SHA256-7A608492F668781E",
+        "verifiedBy": "VIZORIS Vision Intelligence Engine v2.4",
+        "issuedAt": "2026-09-18T22:47:07.163Z"
+      },
+      "scannerSource": "DESKTOP_WEB_UPLOAD"
+    },
+    {
+      "id": "VIZ-2026-0015",
+      "productId": "VIZ-2026-0015",
+      "productType": "Notebook",
+      "name": "Notebook Scan VIZ-2026-0015",
+      "image": "/uploads/notebook-scan-1789771616071-WhatsApp_Image_2026-09-18_at_10_20_51_PM.jpeg",
+      "originalFilename": "WhatsApp Image 2026-09-18 at 10.20.51 PM.jpeg",
+      "timestamp": "2026-09-18T22:46:58.908Z",
+      "inspectedAt": "2026-09-18T22:46:58.908Z",
+      "status": "PASSED",
+      "qualityScore": 99.5,
+      "confidence": 92,
+      "severity": "NOMINAL",
+      "defects": [],
+      "imageAnalysis": {
+        "width": 900,
+        "height": 1279,
+        "blurVariance": 140.99,
+        "isBlurry": false,
+        "notebookDetected": true,
+        "meanBrightness": 182,
+        "contrast": 33.8,
+        "meanSsim": 0.6544,
+        "referenceUsed": true,
+        "alignmentMethod": "ECC_EUCLIDEAN",
+        "rulingDetected": true,
+        "rulingSpacing": 37
+      },
+      "diagnosticMessage": "Notebook quality inspection PASSED. Surface, ruling lines, and binding verified conformant. No abnormal ink strokes, stains, or structural deviations detected (SSIM: 0.654).",
+      "referenceInfo": {
+        "exists": true,
+        "filename": "notebook_clean_reference.jpg",
+        "path": "reference/notebook_clean_reference.jpg",
+        "url": "/reference/notebook_clean_reference.jpg?t=1789769900128.7312",
+        "updatedAt": "2026-09-18T22:18:20.129Z",
+        "sizeBytes": 87864
+      },
+      "rootCause": {
+        "process": "Paper Feed / Raw Substrate",
+        "defectType": "Surface Anomaly",
+        "defectCount": 9,
+        "totalInspections": 14,
+        "defectRate": "64.3%",
+        "confidence": "Moderate",
+        "probableCause": "Foreign particle contamination or surface fiber inconsistency",
+        "recommendedAction": "Inspect Paper Feed / Raw Substrate parameters and verify calibration before next production run.",
+        "disclaimer": "Probable cause based on historical correlation — not confirmed physical cause."
+      },
+      "prediction": {
+        "active": false,
+        "headline": "STABLE: Production Quality Within Control Limits",
+        "summary": "Defect rate is stable or declining across current inspection batch.",
+        "riskLevel": "LOW",
+        "currentDefectRate": "71.4%",
+        "previousDefectRate": "85.7%",
+        "currentBatchTrend": "Nominal drift",
+        "futureDefectRisk": "Low",
+        "recommendedAction": "Continue current line monitoring parameters."
+      },
+      "passport": {
+        "passportId": "PASSPORT-VIZ-2026-0015",
+        "hash": "SHA256-9E9D9E0B951A7408",
+        "verifiedBy": "VIZORIS Vision Intelligence Engine v2.4",
+        "issuedAt": "2026-09-18T22:46:58.911Z"
+      },
+      "scannerSource": "DESKTOP_WEB_UPLOAD"
+    },
+    {
+      "id": "VIZ-2026-0014",
+      "productId": "VIZ-2026-0014",
+      "productType": "Notebook",
+      "name": "Notebook Scan VIZ-2026-0014",
+      "image": "/uploads/notebook-scan-1789771604304-WhatsApp_Image_2026-09-18_at_10_20_51_PM.jpeg",
+      "originalFilename": "WhatsApp Image 2026-09-18 at 10.20.51 PM.jpeg",
+      "timestamp": "2026-09-18T22:46:47.218Z",
+      "inspectedAt": "2026-09-18T22:46:47.218Z",
+      "status": "PASSED",
+      "qualityScore": 99.5,
+      "confidence": 92,
+      "severity": "NOMINAL",
+      "defects": [],
+      "imageAnalysis": {
+        "width": 900,
+        "height": 1279,
+        "blurVariance": 140.99,
+        "isBlurry": false,
+        "notebookDetected": true,
+        "meanBrightness": 182,
+        "contrast": 33.8,
+        "meanSsim": 0.6544,
+        "referenceUsed": true,
+        "alignmentMethod": "ECC_EUCLIDEAN",
+        "rulingDetected": true,
+        "rulingSpacing": 37
+      },
+      "diagnosticMessage": "Notebook quality inspection PASSED. Surface, ruling lines, and binding verified conformant. No abnormal ink strokes, stains, or structural deviations detected (SSIM: 0.654).",
+      "referenceInfo": {
+        "exists": true,
+        "filename": "notebook_clean_reference.jpg",
+        "path": "reference/notebook_clean_reference.jpg",
+        "url": "/reference/notebook_clean_reference.jpg?t=1789769900128.7312",
+        "updatedAt": "2026-09-18T22:18:20.129Z",
+        "sizeBytes": 87864
+      },
+      "rootCause": {
+        "process": "Paper Feed / Raw Substrate",
+        "defectType": "Surface Anomaly",
+        "defectCount": 9,
+        "totalInspections": 13,
+        "defectRate": "69.2%",
+        "confidence": "Moderate",
+        "probableCause": "Foreign particle contamination or surface fiber inconsistency",
+        "recommendedAction": "Inspect Paper Feed / Raw Substrate parameters and verify calibration before next production run.",
+        "disclaimer": "Probable cause based on historical correlation — not confirmed physical cause."
+      },
+      "prediction": {
+        "active": false,
+        "headline": "STABLE: Production Quality Within Control Limits",
+        "summary": "Defect rate is stable or declining across current inspection batch.",
+        "riskLevel": "LOW",
+        "currentDefectRate": "83.3%",
+        "previousDefectRate": "85.7%",
+        "currentBatchTrend": "Nominal drift",
+        "futureDefectRisk": "Low",
+        "recommendedAction": "Continue current line monitoring parameters."
+      },
+      "passport": {
+        "passportId": "PASSPORT-VIZ-2026-0014",
+        "hash": "SHA256-2D1FF1A8550FEC94",
+        "verifiedBy": "VIZORIS Vision Intelligence Engine v2.4",
+        "issuedAt": "2026-09-18T22:46:47.222Z"
+      },
+      "scannerSource": "DESKTOP_WEB_UPLOAD"
+    },
+    {
+      "id": "VIZ-2026-0013",
+      "productId": "VIZ-2026-0013",
+      "productType": "Notebook",
+      "name": "Notebook Scan VIZ-2026-0013",
+      "image": "/uploads/notebook-scan-1789771081985-NB-USB-1983.jpg",
+      "originalFilename": "notebook-scan-1789771081985-NB-USB-1983.jpg",
+      "timestamp": "2026-09-18T22:38:03.383Z",
+      "inspectedAt": "2026-09-18T22:38:03.383Z",
+      "status": "DEFECT DETECTED",
+      "qualityScore": 84,
+      "confidence": 85.2,
+      "severity": "MODERATE",
+      "defects": [
+        {
+          "type": "Surface Anomaly",
+          "label": "Unclassified Surface Mark",
+          "confidence": 85.2,
+          "severity": "MODERATE",
+          "location": "Mid-body-center page area",
+          "bbox": {
+            "x": 44.8,
+            "y": 41.2,
+            "width": 10.6,
+            "height": 7.5
+          },
+          "description": "Anomalous surface feature detected at Mid-body-center page area (~85px prominence).",
+          "suggestedAction": "Flag unit for manual QA review before packaging.",
+          "_meta": {
+            "source": "INDEPENDENT_STROKE",
+            "raw_bbox": [
+              358,
+              453,
+              85,
+              83
+            ],
+            "area_px": 6259,
+            "max_dim": 85
+          },
+          "id": "DEF-01"
+        }
+      ],
+      "imageAnalysis": {
+        "width": 731,
+        "height": 1024,
+        "blurVariance": 125.82,
+        "isBlurry": false,
+        "notebookDetected": true,
+        "meanBrightness": 188.1,
+        "contrast": 22.2,
+        "meanSsim": 0.9913,
+        "referenceUsed": true,
+        "alignmentMethod": "ECC_EUCLIDEAN",
+        "rulingDetected": true,
+        "rulingSpacing": 37
+      },
+      "diagnosticMessage": "Non-conformance detected: Unclassified Surface Mark at Mid-body-center page area — Severity: MODERATE. Bounding box: x=44.8%, y=41.2%, w=10.6%, h=7.5%.",
+      "referenceInfo": {
+        "exists": true,
+        "filename": "notebook_clean_reference.jpg",
+        "path": "reference/notebook_clean_reference.jpg",
+        "url": "/reference/notebook_clean_reference.jpg?t=1789769900128.7312",
+        "updatedAt": "2026-09-18T22:18:20.129Z",
+        "sizeBytes": 87864
+      },
+      "rootCause": {
+        "process": "Paper Feed / Raw Substrate",
+        "defectType": "Surface Anomaly",
+        "defectCount": 8,
+        "totalInspections": 12,
+        "defectRate": "66.7%",
+        "confidence": "Moderate",
+        "probableCause": "Foreign particle contamination or surface fiber inconsistency",
+        "recommendedAction": "Inspect Paper Feed / Raw Substrate parameters and verify calibration before next production run.",
+        "disclaimer": "Probable cause based on historical correlation — not confirmed physical cause."
+      },
+      "prediction": {
+        "active": false,
+        "headline": "STABLE: Production Quality Within Control Limits",
+        "summary": "Defect rate is stable or declining across current inspection batch.",
+        "riskLevel": "LOW",
+        "currentDefectRate": "83.3%",
+        "previousDefectRate": "83.3%",
+        "currentBatchTrend": "Nominal drift",
+        "futureDefectRisk": "Low",
+        "recommendedAction": "Continue current line monitoring parameters."
+      },
+      "passport": {
+        "passportId": "PASSPORT-VIZ-2026-0013",
+        "hash": "SHA256-49FD79961BDFB948",
+        "verifiedBy": "VIZORIS Vision Intelligence Engine v2.4",
+        "issuedAt": "2026-09-18T22:38:03.393Z"
+      },
+      "scannerSource": "USB_MOBILE_BRIDGE"
+    },
+    {
+      "id": "VIZ-2026-0012",
+      "productId": "VIZ-2026-0012",
+      "productType": "Notebook",
+      "name": "Notebook Scan VIZ-2026-0012",
+      "image": "/uploads/notebook-scan-1789771040030-WhatsApp_Image_2026-09-18_at_9_03_28_PM.jpeg",
+      "originalFilename": "WhatsApp Image 2026-09-18 at 9.03.28 PM.jpeg",
+      "timestamp": "2026-09-18T22:37:22.357Z",
+      "inspectedAt": "2026-09-18T22:37:22.357Z",
+      "status": "DEFECT DETECTED",
+      "qualityScore": 68,
+      "confidence": 94,
+      "severity": "CRITICAL",
+      "defects": [
+        {
+          "type": "Torn Page",
+          "label": "Torn / Damaged Page Corner",
+          "confidence": 94,
+          "severity": "CRITICAL",
+          "location": "Mid-body-center page area",
+          "bbox": {
+            "x": 0,
+            "y": 0,
+            "width": 100,
+            "height": 100
+          },
+          "description": "Substrate boundary damage detected at page corner (~1100px span, 15.3% area). Page substrate is torn, cut, or missing compared to clean baseline reference.",
+          "suggestedAction": "Quarantine notebook unit; investigate printing/damage source.",
+          "_meta": {
+            "source": "REFERENCE_DIFF",
+            "raw_bbox": [
+              0,
+              0,
+              800,
+              1100
+            ],
+            "area_px": 134872,
+            "max_dim": 1100
+          },
+          "id": "DEF-01"
+        }
+      ],
+      "imageAnalysis": {
+        "width": 1130,
+        "height": 1600,
+        "blurVariance": 52.9,
+        "isBlurry": false,
+        "notebookDetected": true,
+        "meanBrightness": 191.8,
+        "contrast": 19.7,
+        "meanSsim": 0.8001,
+        "referenceUsed": true,
+        "alignmentMethod": "ECC_EUCLIDEAN",
+        "rulingDetected": true,
+        "rulingSpacing": 39
+      },
+      "diagnosticMessage": "Non-conformance detected: Torn / Damaged Page Corner at Mid-body-center page area — Severity: CRITICAL. Bounding box: x=0.0%, y=0.0%, w=100.0%, h=100.0%.",
+      "referenceInfo": {
+        "exists": true,
+        "filename": "notebook_clean_reference.jpg",
+        "path": "reference/notebook_clean_reference.jpg",
+        "url": "/reference/notebook_clean_reference.jpg?t=1789769900128.7312",
+        "updatedAt": "2026-09-18T22:18:20.129Z",
+        "sizeBytes": 87864
+      },
+      "rootCause": {
+        "process": "Cutting & Trimming",
+        "defectType": "Torn Page",
+        "defectCount": 0,
+        "totalInspections": 11,
+        "defectRate": "0.0%",
+        "confidence": "Moderate",
+        "probableCause": "Trimmer blade edge wear or sheet clamp tension excess",
+        "recommendedAction": "Inspect Cutting & Trimming parameters and verify calibration before next production run.",
+        "disclaimer": "Probable cause based on historical correlation — not confirmed physical cause."
+      },
+      "prediction": {
+        "active": false,
+        "headline": "STABLE: Production Quality Within Control Limits",
+        "summary": "Defect rate is stable or declining across current inspection batch.",
+        "riskLevel": "LOW",
+        "currentDefectRate": "80.0%",
+        "previousDefectRate": "83.3%",
+        "currentBatchTrend": "Nominal drift",
+        "futureDefectRisk": "Low",
+        "recommendedAction": "Continue current line monitoring parameters."
+      },
+      "passport": {
+        "passportId": "PASSPORT-VIZ-2026-0012",
+        "hash": "SHA256-8FDD7BA9F7A4D6FE",
+        "verifiedBy": "VIZORIS Vision Intelligence Engine v2.4",
+        "issuedAt": "2026-09-18T22:37:22.363Z"
+      },
+      "scannerSource": "DESKTOP_WEB_UPLOAD"
+    },
+    {
+      "id": "VIZ-2026-0011",
+      "productId": "VIZ-2026-0011",
+      "productType": "Notebook",
+      "name": "Notebook Scan VIZ-2026-0011",
+      "image": "/uploads/notebook-scan-1789771027848-WhatsApp_Image_2026-09-18_at_10_20_51_PM.jpeg",
+      "originalFilename": "WhatsApp Image 2026-09-18 at 10.20.51 PM.jpeg",
+      "timestamp": "2026-09-18T22:37:11.974Z",
+      "inspectedAt": "2026-09-18T22:37:11.974Z",
+      "status": "PASSED",
+      "qualityScore": 99.5,
+      "confidence": 92,
+      "severity": "NOMINAL",
+      "defects": [],
+      "imageAnalysis": {
+        "width": 900,
+        "height": 1279,
+        "blurVariance": 140.99,
+        "isBlurry": false,
+        "notebookDetected": true,
+        "meanBrightness": 182,
+        "contrast": 33.8,
+        "meanSsim": 0.6544,
+        "referenceUsed": true,
+        "alignmentMethod": "ECC_EUCLIDEAN",
+        "rulingDetected": true,
+        "rulingSpacing": 37
+      },
+      "diagnosticMessage": "Notebook quality inspection PASSED. Surface, ruling lines, and binding verified conformant. No abnormal ink strokes, stains, or structural deviations detected (SSIM: 0.654).",
+      "referenceInfo": {
+        "exists": true,
+        "filename": "notebook_clean_reference.jpg",
+        "path": "reference/notebook_clean_reference.jpg",
+        "url": "/reference/notebook_clean_reference.jpg?t=1789769900128.7312",
+        "updatedAt": "2026-09-18T22:18:20.129Z",
+        "sizeBytes": 87864
+      },
+      "rootCause": {
+        "process": "Printing / Manual Handling",
+        "defectType": "Pen Line / Writing",
+        "defectCount": 3,
+        "totalInspections": 10,
+        "defectRate": "30.0%",
+        "confidence": "Moderate",
+        "probableCause": "Surface roller drag or stray marking during sheet collation",
+        "recommendedAction": "Inspect Printing / Manual Handling parameters and verify calibration before next production run.",
+        "disclaimer": "Probable cause based on historical correlation — not confirmed physical cause."
+      },
+      "prediction": {
+        "active": false,
+        "headline": "STABLE: Production Quality Within Control Limits",
+        "summary": "Defect rate is stable or declining across current inspection batch.",
+        "riskLevel": "LOW",
+        "currentDefectRate": "80.0%",
+        "previousDefectRate": "100.0%",
+        "currentBatchTrend": "Nominal drift",
+        "futureDefectRisk": "Low",
+        "recommendedAction": "Continue current line monitoring parameters."
+      },
+      "passport": {
+        "passportId": "PASSPORT-VIZ-2026-0011",
+        "hash": "SHA256-A8623498A9FFD333",
+        "verifiedBy": "VIZORIS Vision Intelligence Engine v2.4",
+        "issuedAt": "2026-09-18T22:37:11.980Z"
+      },
+      "scannerSource": "DESKTOP_WEB_UPLOAD"
+    },
+    {
       "id": "VIZ-2026-0010",
       "productId": "VIZ-2026-0010",
       "productType": "Notebook",
@@ -952,5 +2623,5 @@
       "scannerSource": "USB_MOBILE_BRIDGE"
     }
   ],
-  "nextCounter": 11
+  "nextCounter": 27
 }

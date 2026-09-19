@@ -219,7 +219,7 @@ export function addInspection(inspection) {
     InspectionModel.findOneAndUpdate(
       { id: inspection.id },
       inspection,
-      { upsert: true, new: true }
+      { upsert: true, returnDocument: 'after' }
     ).catch(err => console.error('[VIZORIS MONGO] Error saving inspection:', err));
   }
 
@@ -273,27 +273,56 @@ export function getInspectionById(id) {
   return db.inspections.find(i => i.id === id || i.productId === id) || null;
 }
 
-// -------------------------------------------------------------
-// Real Metrics Calculation from Stored Real Inspections
-// -------------------------------------------------------------
-export function getMetrics() {
+export function getMetrics(filters = {}) {
   const db = readJsonDb();
-  const realRecords = db.inspections;
+  let realRecords = [...db.inspections];
 
-  const totalInspected = realRecords.length;
-  const passed = realRecords.filter(i => i.status === 'PASSED').length;
-  const defective = realRecords.filter(i => i.status === 'DEFECT DETECTED').length;
+  // Optional date-range filter strictly applied to actual timestamps
+  if (filters && filters.range && filters.range !== 'all' && filters.range !== 'ALL') {
+    const now = new Date();
+    const range = filters.range.toLowerCase();
+    let cutoff = null;
+    if (range === 'today') {
+      cutoff = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    } else if (range === 'week' || range === '7d') {
+      cutoff = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+    } else if (range === 'month' || range === '30d') {
+      cutoff = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
+    }
+    if (cutoff) {
+      realRecords = realRecords.filter(i => {
+        const itemDate = new Date(i.timestamp || i.inspectedAt);
+        return !isNaN(itemDate.getTime()) && itemDate >= cutoff;
+      });
+    }
+  }
+
+  const totalInspections = realRecords.length;
+  const totalInspected = totalInspections; // backward compatibility alias
+  const passedSpecimens = realRecords.filter(i => i.status === 'PASSED').length;
+  const passed = passedSpecimens; // backward compatibility alias
+  const defectsDetected = realRecords.filter(i => i.status === 'DEFECT DETECTED').length;
+  const defective = defectsDetected; // backward compatibility alias
   const lowConfidence = realRecords.filter(i => i.status === 'LOW CONFIDENCE').length;
 
-  const defectRate = totalInspected > 0 ? +((defective / totalInspected) * 100).toFixed(2) : 0;
-  
-  // Calculate average quality score only from records with valid score
-  const scoredRecords = realRecords.filter(i => typeof i.qualityScore === 'number');
-  const avgQualityScore = scoredRecords.length > 0 
-    ? +(scoredRecords.reduce((sum, i) => sum + i.qualityScore, 0) / scoredRecords.length).toFixed(1)
-    : (totalInspected === 0 ? null : 100);
+  // Real First-Pass Yield: passed / total * 100 (0 if no scans)
+  const firstPassYield = totalInspections > 0 
+    ? +((passedSpecimens / totalInspections) * 100).toFixed(2) 
+    : 0;
 
-  // Dynamic Defect Categories from actual scans
+  // Real Defect Rate: defective / total * 100 (0 if no scans)
+  const defectRate = totalInspections > 0 
+    ? +((defectsDetected / totalInspections) * 100).toFixed(2) 
+    : 0;
+  
+  // Calculate average quality score strictly from records with valid numeric scores (0 if no scans)
+  const scoredRecords = realRecords.filter(i => typeof i.qualityScore === 'number' && !isNaN(i.qualityScore));
+  const averageQualityScore = scoredRecords.length > 0 
+    ? +(scoredRecords.reduce((sum, i) => sum + i.qualityScore, 0) / scoredRecords.length).toFixed(1)
+    : 0;
+  const avgQualityScore = averageQualityScore; // backward compatibility alias
+
+  // Dynamic Defect Categories strictly from actual scan defect annotations
   const categoryCounts = {};
   realRecords.forEach(item => {
     if (item.defects && Array.isArray(item.defects)) {
@@ -305,14 +334,19 @@ export function getMetrics() {
   });
 
   return {
+    totalInspections,
     totalInspected,
+    passedSpecimens,
     passed,
+    defectsDetected,
     defective,
     lowConfidence,
+    firstPassYield,
     defectRate,
+    averageQualityScore,
     avgQualityScore,
     categoryCounts,
-    hasRealData: totalInspected > 0
+    hasRealData: totalInspections > 0
   };
 }
 

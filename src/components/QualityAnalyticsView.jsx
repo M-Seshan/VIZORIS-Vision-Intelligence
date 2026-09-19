@@ -15,14 +15,21 @@ import {
 export function QualityAnalyticsView({ metrics, inspections = [] }) {
   const [dataMode, setDataMode] = useState('REAL'); // 'REAL' only by default
 
-  const total = metrics?.totalInspected || 0;
-  const passed = metrics?.passed || 0;
-  const defective = metrics?.defective || 0;
+  const total = metrics?.totalInspections ?? metrics?.totalInspected ?? 0;
+  const passed = metrics?.passedSpecimens ?? metrics?.passed ?? 0;
+  const defective = metrics?.defectsDetected ?? metrics?.defective ?? 0;
   const lowConfidence = metrics?.lowConfidence || 0;
   const hasData = total > 0;
 
-  const passPercent = total > 0 ? ((passed / total) * 100).toFixed(1) : '0.0';
-  const defectPercent = total > 0 ? ((defective / total) * 100).toFixed(1) : '0.0';
+  const passPercent = hasData 
+    ? `${metrics?.firstPassYield !== undefined ? metrics.firstPassYield : ((passed / total) * 100).toFixed(1)}%` 
+    : '0%';
+  const defectPercent = hasData 
+    ? `${metrics?.defectRate !== undefined ? metrics.defectRate : ((defective / total) * 100).toFixed(1)}%` 
+    : '0%';
+  const avgQuality = hasData 
+    ? `${metrics?.averageQualityScore ?? metrics?.avgQualityScore ?? 0}%` 
+    : '0%';
 
   const categoryCounts = metrics?.categoryCounts || {};
   const categoryKeys = Object.keys(categoryCounts);
@@ -66,7 +73,7 @@ export function QualityAnalyticsView({ metrics, inspections = [] }) {
             <span className="kpi-label">YIELD (PASS RATE)</span>
             <CheckCircle2 size={16} className="text-emerald" />
           </div>
-          <div className="kpi-value mono text-emerald">{hasData ? `${passPercent}%` : '—'}</div>
+          <div className="kpi-value mono text-emerald">{passPercent}</div>
           <div className="kpi-subtext">{passed} conformant notebooks</div>
         </div>
 
@@ -75,7 +82,7 @@ export function QualityAnalyticsView({ metrics, inspections = [] }) {
             <span className="kpi-label">DEFECT RATE</span>
             <AlertOctagon size={16} className="text-rose" />
           </div>
-          <div className="kpi-value mono text-rose">{hasData ? `${defectPercent}%` : '—'}</div>
+          <div className="kpi-value mono text-rose">{defectPercent}</div>
           <div className="kpi-subtext">{defective} non-conformant units</div>
         </div>
 
@@ -85,9 +92,7 @@ export function QualityAnalyticsView({ metrics, inspections = [] }) {
             <Award size={16} className="text-cyan" />
           </div>
           <div className="kpi-value mono">
-            {metrics?.avgQualityScore !== null && metrics?.avgQualityScore !== undefined 
-              ? `${metrics.avgQualityScore}%` 
-              : '—'}
+            {avgQuality}
           </div>
           <div className="kpi-subtext">Scored from CV features</div>
         </div>
