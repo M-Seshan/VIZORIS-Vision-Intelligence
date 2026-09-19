@@ -1,5 +1,2 @@
-```text
 opencv-python-headless
 numpy
-```
-
